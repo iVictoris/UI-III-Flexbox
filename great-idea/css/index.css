@@ -150,11 +150,17 @@ h5 {
 }
 
 /* Copy and paste your work from yesterday here and start to refactor into flexbox */
+
+/* * grouped styles start */
 body,
 .container,
+.grid-content, 
+.container.services,
 .container > nav:first-child,
+div.container.services > nav > a.logo-link,
 section.nav-links,
 .main-header,
+.service-header,
 header.main-header > section,
 .top-content,
 .mid-content,
@@ -165,9 +171,48 @@ footer {
 
 body,
 .container,
-header.main-header > section {
+header.main-header > section,
+.service-header {
   flex-direction: column;
 }
+
+.container,
+header.main-header > section > p,
+.top-content,
+.image-control {
+  margin: 0 auto;
+}
+
+.container,
+.nav-links {
+  width: 70%;
+}
+
+header.main-header > section > h1,
+header.main-header > section > p {
+  text-align: center;
+}
+
+.mid-content,
+.image-control,
+.bottom-content,
+footer,
+.top-content,
+.main-header {
+  width: 100%;
+}
+
+.nav-links > p,
+.nav-links > a {
+  text-decoration: none;
+  font-size: 1.05em;
+  color: gray;
+  padding: 0.75em 0;
+  width: 13.5%;
+  vertical-align: middle;
+}
+
+/* ! grouped styles end */
 
 body {
   width: 100vw;
@@ -175,14 +220,11 @@ body {
 }
 
 .container {
-  width: 70%;
-  margin: 0 auto;
   background-color: white;
   padding: 0 2.5em;
 }
 
 .container > nav:first-child {
-  width: 100%;
   margin-top: 0.5em;
 }
 
@@ -190,63 +232,58 @@ body {
   background: url("../img/logo.png") no-repeat;
 }
 
-section.nav-links {
-  width: 70%;
+.nav-links {
+  justify-content: space-between
 }
 
-section.nav-links.logo {
-	vertical-align: bottom;
-	margin-left: auto;
+.nav-links.logo {
+  vertical-align: bottom;
+  margin-left: auto;
   width: 25%;
 }
 
-.nav-links > p {
-  font-size: 1.05em;
-  color: gray;
-  padding: 0.75em;
-  margin-left: 0.75em;
-  width: 13.5%;
-  vertical-align: middle;
-}
-
-header.main-header {
-  width: 100%;
+.main-header {
   padding-bottom: 3em;
   border-bottom: 1px solid #000;
   margin: 2.75em auto;
   margin-bottom: 2.3em;
 }
 
-header.main-header > section > h1 {
+.main-header > section > h1 {
   font-size: 5em;
   width: 85%;
-	text-align: center;
-	padding-top: .75em;
+  padding-top: 0.75em;
 }
 
-header.main-header > section {
+.main-header > section {
   margin: 0 43px;
 }
 
-header.main-header > section > p {
+.main-header > section > p {
   width: 55%;
-  text-align: center;
   padding: 0.55em 1em;
   border: 1px solid gray;
   color: gray;
-  margin: 0 auto;
   margin-left: 3.2em;
 }
 
-header.main-header > section{
+.main-header > section {
   vertical-align: middle;
   width: 35%;
 }
 
+.content > header {
+  font-weight: bolder;
+  text-shadow: 1px 1px 1.25px black;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+  font-style: oblique;
+}
+
 .top-content {
-  margin: 0 auto;
   margin-bottom: 50px;
-  width: 100%;
 }
 
 .top-content > section {
@@ -265,25 +302,7 @@ header.main-header > section{
   letter-spacing: 0.95px;
 }
 
-.top-content > section > header,
-.bottom-content > section > header,
-.contact > header {
-  font-weight: bolder;
-  text-shadow: 1px 1px 1.25px black;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  letter-spacing: -0.5px;
-  font-style: oblique;
-}
-
-.mid-content {
-  width: 100%;
-}
-
 .image-control {
-  width: 100%;
-  margin: 0 auto;
   margin-bottom: 2em;
 }
 
@@ -291,9 +310,7 @@ header.main-header > section{
   width: inherit;
 }
 
-
 .bottom-content {
-  width: 100%;
   padding-bottom: 2em;
   border-bottom: 1px solid #000;
   margin-bottom: 2em;
@@ -314,8 +331,112 @@ header.main-header > section{
 }
 
 footer {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 5em;
+  padding-bottom: 2em;
   margin-top: 3em;
+  justify-content: center;
+}
+
+/* Service css */
+
+div.container > nav > a.logo-link {
+  width: 30%;
+  justify-content: flex-end;
+}
+
+.container section.logo {
+  width: 69%;
+  height: 100%;
+}
+
+.service-header {
+  width: 100%;
+  height: 300px;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #000;
+}
+
+.service-header header {
+  margin-top: 1.25em;
+  font-size: 1.25em;
+}
+
+.service-header p {
+  font-size: .95em;
+  letter-spacing: .5px;
+}
+
+.services-header-img {
+  background: url('../img/services-header.jpg') no-repeat;
+  height: 100%;
+  margin-top: 1.5em; 
+}
+
+.grid-content {
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  margin-top: 2.5em;
+  align-content: space-around;
+  border-bottom: 2px solid #000;
+  margin-bottom: 2em;
+}
+
+.item.content {
+  display: inline-block;
+  width: 47%;
+  padding: 25px;
+  border: 1px solid #000;
+  background-color: #F4F3F4;
+  margin-bottom: 3em;
+}
+
+.item.content > p{
+  width: 100%;
+  margin: 0;
+  font-size: .95em;
+  letter-spacing: .5px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  font-size: 75%;
+  margin-top: 1.5em;
+}
+
+.content-related-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-related-container > .content {
+  width: 45%;
+}
+
+.content-related-container  p {
+  font-size: 16px;
+  letter-spacing: 0px
+}
+.content-related-container ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  list-style: square;
+  height: 6em;
+  margin-top: 1.6em;
+  margin-left: 1.4em;
+  font-size: 16px;
+  line-height: 2em;
+}
+
+.services-info-img {
+  background: url('../img/services-info.png') no-repeat;
+  width: 420px;
+  height: 300px;
 }
